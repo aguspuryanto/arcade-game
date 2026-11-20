@@ -51,4 +51,12 @@ export const GAMES: GameInfo[] = [
     color: '#22d3ee',
     available: true,
   },
+  {
+    id: 'orbit-defender',
+    title: 'Orbit Defender',
+    description: 'Tembak jatuh formasi musuh sebelum mereka mencapai pangkalanmu.',
+    icon: '🚀',
+    color: '#f472b6',
+    available: true,
+  },
 ]

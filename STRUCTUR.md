@@ -10,14 +10,16 @@ arcade-nuxt4/
 │   │   ├── SolitaireBoard.vue
 │   │   ├── PlayingCard.vue        # satu kartu remi (dipakai Solitaire)
 │   │   ├── BlockDropCanvas.vue
-│   │   └── NeonPaddleCanvas.vue
+│   │   ├── NeonPaddleCanvas.vue
+│   │   └── OrbitDefenderCanvas.vue
 │   ├── composables/
 │   │   ├── usePlayer.ts           # state pemain saat ini (tamu / Google)
 │   │   ├── useSnakeGame.ts
 │   │   ├── useSkyHopperGame.ts
 │   │   ├── useSolitaireGame.ts
 │   │   ├── useBlockDropGame.ts
-│   │   └── useNeonPaddleGame.ts
+│   │   ├── useNeonPaddleGame.ts
+│   │   └── useOrbitDefenderGame.ts   # engine tanpa Vue (bisa diuji di Node) + wrapper
 │   ├── data/
 │   │   └── games.ts               # re-export dari shared/games.ts
 │   ├── pages/
@@ -28,13 +30,15 @@ arcade-nuxt4/
 │   │       ├── sky-hopper.vue
 │   │       ├── solitaire.vue
 │   │       ├── block-drop.vue
-│   │       └── neon-paddle.vue
+│   │       ├── neon-paddle.vue
+│   │       └── orbit-defender.vue
 │   ├── types/
 │   │   ├── snake.ts
 │   │   ├── skyHopper.ts
 │   │   ├── solitaire.ts
 │   │   ├── blockDrop.ts
-│   │   └── neonPaddle.ts
+│   │   ├── neonPaddle.ts
+│   │   └── orbitDefender.ts
 │   ├── utils/
 │   │   ├── highScore.ts           # skor tertinggi per game (localStorage)
 │   │   └── leaderboard.ts         # submitScore() → kirim skor ke server
