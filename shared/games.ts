@@ -43,4 +43,12 @@ export const GAMES: GameInfo[] = [
     color: '#a78bfa',
     available: true,
   },
+  {
+    id: 'neon-paddle',
+    title: 'Neon Paddle',
+    description: 'Duel pingpong lawan CPU. Pantulkan bola dan bobol gawang lawan.',
+    icon: '🏓',
+    color: '#22d3ee',
+    available: true,
+  },
 ]
