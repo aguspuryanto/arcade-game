@@ -1,0 +1,8 @@
+# Jangan unggah file lokal/rahasia saat `vercel deploy` dari CLI
+.env
+.env.*
+!.env.example
+.data
+.output
+.nuxt
+node_modules
