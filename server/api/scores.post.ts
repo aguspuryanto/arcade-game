@@ -10,15 +10,7 @@ export default defineEventHandler(async (event): Promise<SubmitScoreResponse> =>
   }
 
   const player = await requirePlayer(event)
-  let improved = false
-  const table = await updateScores(gameId, (t) => {
-    const current = t[player.id]
-    if (!current || score > current.score) {
-      t[player.id] = { score, at: Date.now() }
-      improved = true
-    }
-  })
-
-  const rank = sortScores(table).findIndex(([id]) => id === player.id) + 1
-  return { best: table[player.id]!.score, improved, rank }
+  const { best, improved } = await submitBestScore(gameId, player.id, score)
+  const rank = (await readSortedScores(gameId)).findIndex(([id]) => id === player.id) + 1
+  return { best, improved, rank }
 })

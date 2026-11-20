@@ -6,7 +6,7 @@ export default defineEventHandler(async (event): Promise<LeaderboardResponse> =>
   const limit = Math.min(50, Math.max(1, Number(getQuery(event).limit) || 10))
 
   const me = await getSessionPlayer(event)
-  const sorted = sortScores(await readScores(gameId))
+  const sorted = await readSortedScores(gameId)
   const top = sorted.slice(0, limit)
   const players = await getPlayers(top.map(([id]) => id))
 

@@ -52,11 +52,13 @@ arcade-nuxt4/
 │   │   ├── scores.post.ts         # kirim skor (hanya skor terbaik disimpan)
 │   │   └── leaderboard/[gameId].get.ts
 │   └── utils/
+│       ├── db.ts                  # Upstash Redis (production) / .data/kv (lokal)
 │       ├── session.ts             # cookie sesi terenkripsi
 │       ├── players.ts             # penyimpanan profil + generator profil acak
-│       └── scores.ts              # penyimpanan skor per game
-├── .env.example                   # NUXT_SESSION_PASSWORD, NUXT_PUBLIC_GOOGLE_CLIENT_ID
+│       └── scores.ts              # skor terbaik, satu key per pemain per game
+├── .env.example                   # daftar environment variable
 ├── nuxt.config.ts
 └── package.json
 
-Data leaderboard disimpan lewat Nitro storage `data` (default: folder `.data/kv`).
+Data leaderboard: Upstash Redis jika env UPSTASH_REDIS_REST_URL/TOKEN (atau KV_REST_API_*) ada,
+selain itu folder `.data/kv`. Panduan deploy Vercel ada di README.md.

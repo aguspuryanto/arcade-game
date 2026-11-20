@@ -27,9 +27,9 @@ const COLORS = ['#f87171', '#fb923c', '#facc15', '#4ade80', '#2dd4bf', '#38bdf8'
 
 const pick = <T>(arr: readonly T[]) => arr[randomInt(arr.length)]!
 
-const storage = () => useStorage('data')
-const playerKey = (id: string) => `arcade:players:${id}`
-const googleKey = (sub: string) => `arcade:google:${sub}`
+const storage = db
+const playerKey = (id: string) => `players:${id}`
+const googleKey = (sub: string) => `google:${sub}`
 
 export function randomProfile() {
   const [animal, avatar] = pick(ANIMALS)
@@ -49,8 +49,10 @@ export async function getPlayer(id: string) {
 }
 
 export async function getPlayers(ids: string[]) {
-  const list = await Promise.all(ids.map(id => getPlayer(id)))
-  return new Map(list.filter((p): p is StoredPlayer => !!p).map(p => [p.id, p]))
+  if (ids.length === 0) return new Map<string, StoredPlayer>()
+  const items = await storage().getItems<StoredPlayer>(ids.map(playerKey))
+  const list = items.map(i => i.value).filter((p): p is StoredPlayer => !!p)
+  return new Map(list.map(p => [p.id, p]))
 }
 
 export async function savePlayer(player: StoredPlayer) {
