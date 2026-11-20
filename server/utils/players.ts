@@ -27,7 +27,7 @@ const COLORS = ['#f87171', '#fb923c', '#facc15', '#4ade80', '#2dd4bf', '#38bdf8'
 
 const pick = <T>(arr: readonly T[]) => arr[randomInt(arr.length)]!
 
-const storage = db
+const storage = () => db()
 const playerKey = (id: string) => `players:${id}`
 const googleKey = (sub: string) => `google:${sub}`
 
