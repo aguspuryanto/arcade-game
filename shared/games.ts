@@ -1,0 +1,46 @@
+// shared/games.ts — dipakai app & server (validasi gameId leaderboard)
+// Katalog game. Tambahkan entri baru di sini saat game baru selesai dibuat.
+
+export interface GameInfo {
+  id: string
+  title: string
+  description: string
+  icon: string
+  color: string
+  available: boolean
+}
+
+export const GAMES: GameInfo[] = [
+  {
+    id: 'snake',
+    title: 'Snake',
+    description: 'Makan sebanyak mungkin tanpa menabrak dinding atau tubuh sendiri.',
+    icon: '🐍',
+    color: '#4ade80',
+    available: true,
+  },
+  {
+    id: 'sky-hopper',
+    title: 'Sky Hopper',
+    description: 'Ketuk untuk mengepak, terbang melewati celah pilar kristal.',
+    icon: '🐦',
+    color: '#38bdf8',
+    available: true,
+  },
+  {
+    id: 'solitaire',
+    title: 'Solitaire',
+    description: 'Susun kartu dari As sampai King di setiap fondasi.',
+    icon: '🃏',
+    color: '#f59e0b',
+    available: true,
+  },
+  {
+    id: 'block-drop',
+    title: 'Block Drop',
+    description: 'Putar dan jatuhkan balok untuk melengkapi baris.',
+    icon: '🧱',
+    color: '#a78bfa',
+    available: true,
+  },
+]
